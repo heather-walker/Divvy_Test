@@ -38,12 +38,12 @@ aws iam attach-role-policy \
 # ECHO "Adding DynamoDB Access to the new role"
 # aws iam attach-role-policy \
   # --role-name "lambda-s3-role" \
-  # --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess 
+  # --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
 # ECHO
 # ECHO "Adding Lambda Access to the new role"
   # aws iam attach-role-policy \
   # --role-name "lambda-s3-role" \
-  # --policy-arn arn:aws:iam::aws:policy/AWSLambdaFullAccess 
+  # --policy-arn arn:aws:iam::aws:policy/AWSLambdaFullAccess
 # Create the lambda function
 ECHO
 ECHO "Now I need to create a lambda function to transform the data..."
@@ -52,7 +52,7 @@ aws lambda create-function --function-name $LAMBDA  \
      --runtime "python3.7" --role "arn:aws:iam::$ACCOUNT_ID:role/lambda-s3-role" \
      --handler "DataToJSON.lambda_handler" --timeout 3 \
      --memory-size 128 \
-     --zip-file "fileb://DataToJSON.zip" 
+     --zip-file "fileb://DataToJSON.zip"
 # add s3 permission to lambda function
 ECHO
 ECHO "Adding S3 permissions to invoke the function"
@@ -80,7 +80,7 @@ aws s3api put-bucket-notification-configuration --bucket "parent-child-divvy-hbl
 # Copying new file into the bucket
 ECHO
 ECHO "Using test file to run function. "
-aws s3 cp C:/Users/Heather.Walker/Documents/Heather/Divvy_Test/test_text.txt s3://parent-child-divvy-hblood/test_text.txt
+aws s3 cp test_text.txt
 
 ECHO
 ECHO "Process complete!"

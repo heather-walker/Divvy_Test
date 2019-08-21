@@ -75,6 +75,7 @@ def upload_to_database(file_name, database, table_name):
     except:
         print('Table has already been created')
 
+    #wait for table creation before putting items inside
     time.sleep(1)
 
     # Write out to the table
