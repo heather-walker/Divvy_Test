@@ -13,8 +13,13 @@ sh build.sh
 
 To test with your own file, drag and drop into the s3 bucket called parent-child-divvy-hblood and then check the DynamoDB
 
+When you're done, 
+```bash
+sh teardown.sh
+```
+
 ## Description
-  ### In the `Scripts` folder there is one shell script
+  ### In the `Scripts` folder there are two shell scripts
 - `build.sh`:  
     - This file is what creates the data pipeline.  It will:  
          - Create an S3 bucket
@@ -22,5 +27,8 @@ To test with your own file, drag and drop into the s3 bucket called parent-child
          - Create a Lambda function from the zipped file `DataToJSON.zip`
          - Add permissions and triggers necessary for S3 and Lambda to interact
         - Copy a test file into the bucket to demonstrate the pipeline.  To view the results just open up your AWS Console, open DynamoDB and you should see the table `ParentChild` with an entry for `test_text.txt`.
+- `teardown.sh`:  
+    - This file is what cleans up the pipeline 
+         - Deletes the bucket, row, and function.
 
 
