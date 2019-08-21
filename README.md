@@ -13,8 +13,8 @@ sh build.sh
 
 To test with your own file, drag and drop into the s3 bucket called parent-child-divvy-hblood and then check the DynamoDB
 
-##Description
-### In the `Scripts` folder there is one shell script
+## Description
+  ### In the `Scripts` folder there is one shell script
 - `build.sh`:  
     - This file is what creates the data pipeline.  It will:  
          - Create an S3 bucket
